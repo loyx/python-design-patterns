@@ -10,6 +10,7 @@ class WeatherData(Observable):
         self.__pressure = 0
 
     def measurementChanged(self):
+        self.setChanged()
         self.notifyObserver()
 
     def setMeasurements(self, temperature, humidity, pressure):

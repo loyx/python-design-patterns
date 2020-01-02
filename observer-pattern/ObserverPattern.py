@@ -1,6 +1,7 @@
 class Observable:
 
     def __init__(self):
+        self._changed = True
         self._observers_list = []
 
     def registerObserver(self, observer):
@@ -12,8 +13,18 @@ class Observable:
             self._observers_list.remove(observer)
 
     def notifyObserver(self):
-        for observer in self._observers_list:
-            observer.update()
+        if self._changed:
+            for observer in self._observers_list:
+                observer.update()
+
+    def setChanged(self):
+        self._changed = True
+
+    def clearChanged(self):
+        self._changed = False
+
+    def hasChanged(self):
+        return self._changed
 
 
 class Observer:
