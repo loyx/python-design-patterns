@@ -39,12 +39,9 @@ class RemoteControl:
             command.undo()
 
     def __repr__(self):
-        length = len(self.onCommands)
         line_item = '{:^5}|{:^40}|{:^40}|\n'
         ret = line_item.format('slots', 'OnCommands', 'OffCommands')
-        for index in range(length):
-            ret += line_item.format(index,
-                                    type(self.onCommands[index]).__name__,
-                                    type(self.offCommands[index]).__name__)
+        for index, (on, off) in enumerate(zip(self.onCommands, self.offCommands)):
+            ret += line_item.format(index, type(on).__name__, type(off).__name__)
         ret += 'undoCommandList:{}\n'.format(self.undoCommands)
         return ret
