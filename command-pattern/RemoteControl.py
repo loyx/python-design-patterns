@@ -1,6 +1,6 @@
 from Command import NoCommand
 
-"""RemoteControl play invoker"""
+""" RemoteControl play invoker """
 
 
 class RemoteControl:

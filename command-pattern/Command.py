@@ -1,5 +1,11 @@
 from abc import ABC, abstractmethod
 
+"""这里之所使用抽象基类，是因为要模仿GOF中命令模式所需的interface
+
+但事实上，可以考虑鸭子类型的特点。需要interface 只是JAVA限制。在
+Python中不妨使用协议
+"""
+
 
 class Command(ABC):
 
