@@ -3,6 +3,7 @@
 这里使用简化的接口——协议
 """
 import random
+from typing import Union
 from duck_and_turkey import *
 
 
@@ -41,8 +42,8 @@ class DuckToTurkey:
 duck = Duck()
 turkey = Turkey()
 
-duck_turkey = DuckToTurkey(duck)
-turkey_duck = TurkeyToDuck(turkey)
+duck_turkey: Union[Turkey, DuckToTurkey] = DuckToTurkey(duck)
+turkey_duck: Union[Duck, TurkeyToDuck] = TurkeyToDuck(turkey)
 
 print("test turkey adapter")
 test_Turkey_adapter(duck_turkey)
